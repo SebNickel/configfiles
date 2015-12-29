@@ -104,9 +104,13 @@ endif
 
 " Enter Seb
 
+" tab -> 4 spaces
 set tabstop=4 shiftwidth=4 expandtab
 
-set suffixesadd=.kt,.js,.java,.py
+" line numbers pls
+set number
 
+" for easier file navigation in some programming languages:
+set suffixesadd=.kt,.js,.java,.py
 set includeexpr=substitute(substitute(v:fname,'\.','\/','g'),'$','.kt','')
 set includeexpr=substitute(substitute(v:fname,'\.','\/','g'),'$','.java','')
