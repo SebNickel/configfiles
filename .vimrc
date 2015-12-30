@@ -110,6 +110,9 @@ set tabstop=4 shiftwidth=4 expandtab
 " line numbers pls
 set number
 
+" tab completion in command line mode
+set wildmenu
+
 " for easier file navigation in some programming languages:
 set suffixesadd=.kt,.js,.java,.py
 set includeexpr=substitute(substitute(v:fname,'\.','\/','g'),'$','.kt','')
