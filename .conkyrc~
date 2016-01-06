@@ -2,7 +2,7 @@ background yes
 
 alignment top_left
 
-gap_x 85
+gap_x 80
 gap_y 70
 
 use_xft yes

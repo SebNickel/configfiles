@@ -1,0 +1,11 @@
+URxvt*background: black
+URxvt*foreground: white
+
+URxvt.font: 9x15bold
+
+URxvt.scrollstyle: plain
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.perl-ext-common: default,resize-font

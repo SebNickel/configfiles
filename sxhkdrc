@@ -1,3 +1,5 @@
+# ~/.config/sxhkd/sxhkdrc
+
 #
 # bspwm hotkeys
 #
@@ -52,23 +54,14 @@ super + bracket{left,right}
 super + ctrl + {h,j,k,l}
 	bspc window -p {left,down,up,right}
 
-super + ctrl + {Left,Down,Up,Right}
-	bspc window -p {left,down,up,right}
-
 super + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
 super + alt + {h,j,k,l}
 	bspc window -e {left -10,down +10,up -10,right +10}
 
-super + alt + {Left,Down,Up,Right}
-	bspc window -e {left -10,down +10,up -10,right +10}
-
 super + alt + shift + {h,j,k,l}
 	bspc window -e {right -10,up +10,down -10,left +10}
-
-super + alt + shift + {Left,Down,Up,Right}
-        bspc window -e {right -10,up +10,down -10,left +10}
 
 super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
@@ -102,6 +95,9 @@ super + space
 	dmenu_run
 
 super + backslash
+    qutebrowser
+
+super + shift + backslash
 	google-chrome-stable
 
 super + slash

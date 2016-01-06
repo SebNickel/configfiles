@@ -28,9 +28,7 @@ fi
 
 # change keymap
 
-if [ -s ~/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
-fi
+setxkbmap -layout us 
 
 # start some nice programs
 
@@ -48,11 +46,7 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 # feh --bg-scale ~/Pictures/scott.jpg
-feh --bg-max -g +850  ~/Pictures/chiptunes_win.jpg
-
-# autocutsel keeps 'clipboard' and 'primary selection' synced
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+feh --bg-max -g +700  ~/Music/ChiptunesWin2/cover.jpg
 
 conky &
 sxhkd &
