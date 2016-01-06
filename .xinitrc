@@ -1,5 +1,9 @@
 #!/bin/sh
 
+#
+# ~/.xinitrc
+#
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -27,6 +31,8 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # change keymap
+
+setxkbmap -option caps:none
 
 if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap

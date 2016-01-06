@@ -1,3 +1,7 @@
+#
+# ~/.conkyrc
+#
+
 background yes
 
 alignment top_left

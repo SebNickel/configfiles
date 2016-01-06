@@ -1,3 +1,7 @@
+#
+# ~/.xbindkeysrc
+#
+
 "pamixer --increase 5"
     Control + Up
 

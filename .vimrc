@@ -1,3 +1,6 @@
+"
+" ~/.vimrc
+"
 
 " An example for a vimrc file.
 "
