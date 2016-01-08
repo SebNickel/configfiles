@@ -2,80 +2,163 @@
 # ~/.config/sxhkd/sxhkdrc
 #
 
+# 
+# Notes: 
+#
+#   1. How to read this file:
+#      Lines beginning with # are comments. Most comments in this file explain what a given
+#      keybinding does.
+#      Unindented lines that do not begin with a # are keybindings.
+#      Lines indented with a tab are the actual commands corresponding to the respective
+#      keybindings. If you are here to learn how to use this window manager, you can ignore
+#      these. The reason they're here is that this is an actual configuration file (with comments)
+#      on top of being a reference file for humans.
+#      Comma-separated items inside curly brackets { } represent alternatives, for brevity.
+#
+#   2. The "super" key is normally between the Ctrl and Alt keys,
+#      known to Windows users as the "Windows" key and to Mac users as the "command" key.
+#   
+#   3. "grave" = backtick, i.e. `. (Used in one key combo.)
+#
+#   4. Some of my comments mention a (binary) tree. That's because this window manager internally
+#      represents the windows as being the leaves of a full binary tree. Hence its name, bspwm, for
+#      Binary Space Partitioning Window Manager. This stuff is perfectly safe to ignore.
+#
+
 #
 # bspwm hotkeys
 #
 
+# Close bspwm (i.e. the window manager. Closing it will leave you with a windowless command-line
+# environment. You can then enter "startx" to relaunch bspwm.)
 super + alt + Escape
 	bspc quit
 
+# Close the active window
 super + w
 	bspc window -c
 
+# Toggle "monocle" mode, which will put the active window in fullscreen mode
 super + t
 	bspc desktop -l next
 
+# Toggle fullscreen mode for the active window
+super + f
+    bspc window -t fullscreen
+
+    # Difference between super + t and super + f:
+    # When in monocle mode, new windows will open in fullscreen mode, as will any window becoming
+    # active upon closing the previous window.
+    # The effects of super + f are undone as soon as the window is closed or a new window is opened.
+
+# Make all windows on the active desktop the same size
 super + b
 	bspc desktop -B
 
-super + {s,f}
-	bspc window -t {floating,fullscreen}
+# Toggle floating mode for the active window
+super + s
+	bspc window -t floating
 
+# Focus the {window,desktop} that was active just before the current one
 super + {grave,Tab}
 	bspc {window,desktop} -f last
 
+# Swap the active window with the one that was active just before this one
 super + apostrophe
 	bspc window -s last
 
+# Move the window focus {backward,forward} in history
 super + {o,i}
 	bspc control --record-history off; \
 	bspc window {older,newer} -f; \
 	bspc control --record-history on
 
+# This is a default setting that I don't understand.
+# It should do something like swap the active window with the last window that was opened via
+# preselection. I think.
 super + y
 	bspc window -w last.manual
 
+# Swap the active window with the biggest window in the active desktop
 super + m
 	bspc window -s biggest
 
-super + {_,shift + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
+# Move the window focus {left,down,up,right}
+super + {h,j,k,l}
+	bspc window -f {left,down,up,right}
 
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc window -{f,s} {left,down,up,right}
+# Swap windows, moving the active one {left,down,up,right}
+super + shift + {h,j,k,l}
+    bspc window -s {left,down,up,right}
 
+# Move the window focus {forward,backward} through the binary tree
 super + {_,shift + }c
 	bspc window -f {next,prev}
 
+# Circulate the leaves of the binary tree {forward,backward}
+# (Like, rotate the windows around on the screen...)
 super + {comma,period}
 	bspc desktop -C {backward,forward}
 
+# Move the desktop focus {forward,backward}
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
+# Preselect the {left,lower,upper,right} half of the active window
 super + ctrl + {h,j,k,l}
 	bspc window -p {left,down,up,right}
 
+# Cancel the preselection(s) on the active {window,desktop}
 super + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
+# Push the {left,lower,upper,right} edge of the active window outward
 super + alt + {h,j,k,l}
 	bspc window -e {left -10,down +10,up -10,right +10}
 
+# Pull the {right,upper,lower,left} edge of the active window inward
 super + alt + shift + {h,j,k,l}
 	bspc window -e {right -10,up +10,down -10,left +10}
 
+# Reset the split ratios for the windows on the active desktop
+super + alt + space
+    bspc desktop -E
+
+# Preselection usually affects half of the active window, but you can change the affected
+# window fraction with the following command. E.g. to preselect a fifth (0.2) of the active
+# window, hit super + ctrl + 2, then preselect with super + ctrl + {h,j,k,l}
 super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
 
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} ^{1-9,10}
+# Move the focus to desktop number {1-9,0}
+super + {1-9,0}
+    bspc desktop -f ^{1-9,0}
 
+# Send the active window to desktop number {1-9,0}
+super + shift + {1-9,0}
+	bspc window -d ^{1-9,10}
+
+# Rotate the subtree holding the {left,lower,upper,right} edge of the active window
+# Use this to fix overly "elongated" windows
+super + alt + ctrl + {h,j,k,l}
+    bspc window -R {left,down,up,right} 90    
+
+# Swap the contents of the active desktop with those of desktop number {1-9,0}
+super + shift + ctrl + {1-9,0}
+    bspc desktop -s ^{1-9,0}
+
+# Clicking on a window focuses it
 ~button1
 	bspc pointer -g focus
 
+# super + left-click to move a window
+# super + middle-click to resize a window by grabbing one of its sides
+# super + right-click to resize a window by grabbing one of its corners
 super + button{1-3}
-	; bspc pointer -g {move,resize_side,resize_corner}
+	bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+    bspc pointer -t %i %i
 
 super + @button{1-3}
 	bspc pointer -u
@@ -84,39 +167,50 @@ super + @button{1-3}
 # wm independent hotkeys
 #
 
-ctrl + Up
-	pamixer --increase 1
+# Volume {up,down}
+ctrl + {Up,Down}
+	pamixer {--increase,--decrease} 1
 
-ctrl + Down
-	pamixer --decrease 1
-
+# Open terminal window
 super + Return
 	urxvt
 
+# Open dmenu (to launch any app, or run a command in the background)
+# (dmenu will show as a narrow strip on top of the active screen, so look up. Esc to close it again.)
 super + space
 	dmenu_run
 
+# Open qutebrowser (keybinding-driven web browser, little multimedia support)
 super + backslash
     qutebrowser
 
+# Open Google Chrome (all multimedia, but without cool keybindings + farewell privacy :) )
 super + shift + backslash
 	google-chrome-stable
 
+# Open cmus in a new terminal window (minimalistic music player)
 super + slash
 	urxvt -e cmus
 
+# Controls for cmus (should work whichever window is active:)
+
+# Play
 ctrl + alt + slash
 	cmus-remote --play
 
+# Stop
 ctrl + super + slash
 	cmus-remote --stop
 
+# Next song
 ctrl + Right
 	cmus-remote --next
 
+# Previous song
 ctrl + Left
 	cmus-remote --prev
 
+# Toggle pause
 ctrl + space
 	cmus-remote --pause
 
