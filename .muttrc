@@ -1,0 +1,13 @@
+set imap_user       = sebastianchristophnickel@gmail.com
+set folder          = imaps://sebastianchristophnickel@imap.gmail.com
+set spoolfile       = +INBOX
+mailboxes           = +INBOX
+set postponed       = +[Gmail]/Drafts
+unset imap_passive
+set imap_keepalive  = 300
+set mail_check      = 120
+unset record
+
+set realname        = 'Sebastian Nickel'
+set sendmail        = "/usr/bin/msmtp"
+set edit_headers    = yes

@@ -4,9 +4,12 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-cowlist=($( cowsay -l ))
-cowfiles=(${cowlist[@]:4})
-selection=$RANDOM%${#cowfiles[*]}
-fortune linux | cowsay -f ${cowfiles[$selection]}
+figlet -f small "*** Mathison ***"
+
+asciipics=($( ls ~/Pictures/ascii ))
+selection=$RANDOM%${#asciipics[*]}
+cat ~/Pictures/ascii/${asciipics[$selection]}
+
+echo
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx

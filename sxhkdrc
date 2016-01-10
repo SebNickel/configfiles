@@ -169,7 +169,7 @@ super + @button{1-3}
 
 # Volume {up,down}
 ctrl + {Up,Down}
-	pamixer {--increase,--decrease} 1
+	pamixer --allow-boost {--increase,--decrease} 1
 
 # Open terminal window
 super + Return
