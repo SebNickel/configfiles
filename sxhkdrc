@@ -188,31 +188,31 @@ super + backslash
 super + shift + backslash
 	google-chrome-stable
 
-# Open cmus in a new terminal window (minimalistic music player)
+# Open ncmpc in a new terminal window (minimalistic music player)
 super + slash
-	urxvt -e cmus
+	urxvt -e ncmpc
 
-# Controls for cmus (should work whichever window is active:)
-
-# Play
-ctrl + alt + slash
-	cmus-remote --play
+# Controls for mpd (the music play daemon)
+    
+# Play, then Toggle pause
+ctrl + space
+	mpc toggle
 
 # Stop
-ctrl + super + slash
-	cmus-remote --stop
+ctrl + shift + space
+	mpc stop
 
 # Next song
 ctrl + Right
-	cmus-remote --next
+	mpc next
 
 # Previous song
 ctrl + Left
-	cmus-remote --prev
+	mpc prev
 
-# Toggle pause
-ctrl + space
-	cmus-remote --pause
+# Toggle shuffle
+ctrl + slash
+    mpc random
 
 # make sxhkd reload its configuration files:
 super + Escape
