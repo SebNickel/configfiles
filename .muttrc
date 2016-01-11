@@ -1,3 +1,7 @@
+source "gpg2 -dq $HOME/.my-pwds.gpg |"
+
+bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' noop
+
 set imap_user       = sebastianchristophnickel@gmail.com
 set folder          = imaps://sebastianchristophnickel@imap.gmail.com
 set spoolfile       = +INBOX
@@ -7,7 +11,8 @@ unset imap_passive
 set imap_keepalive  = 300
 set mail_check      = 120
 unset record
-
+set imap_pass       = $my_pw
+set send_charset    = "us-ascii:utf-8"
 set realname        = 'Sebastian Nickel'
 set sendmail        = "/usr/bin/msmtp"
 set edit_headers    = yes
