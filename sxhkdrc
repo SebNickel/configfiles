@@ -32,15 +32,15 @@
 # Close bspwm (i.e. the window manager. Closing it will leave you with a windowless command-line
 # environment. You can then enter "startx" to relaunch bspwm.)
 super + alt + Escape
-	bspc quit
+    bspc quit
 
 # Close the active window
 super + w
-	bspc window -c
+    bspc window -c
 
 # Toggle "monocle" mode, which will put the active window in fullscreen mode
 super + t
-	bspc desktop -l next
+    bspc desktop -l next
 
 # Toggle fullscreen mode for the active window
 super + f
@@ -53,39 +53,39 @@ super + f
 
 # Make all windows on the active desktop the same size
 super + b
-	bspc desktop -B
+    bspc desktop -B
 
 # Toggle floating mode for the active window
 super + s
-	bspc window -t floating
+    bspc window -t floating
 
 # Focus the {window,desktop} that was active just before the current one
 super + {grave,Tab}
-	bspc {window,desktop} -f last
+    bspc {window,desktop} -f last
 
 # Swap the active window with the one that was active just before this one
 super + apostrophe
-	bspc window -s last
+    bspc window -s last
 
 # Move the window focus {backward,forward} in history
 super + {o,i}
-	bspc control --record-history off; \
-	bspc window {older,newer} -f; \
-	bspc control --record-history on
+    bspc control --record-history off; \
+    bspc window {older,newer} -f; \
+    bspc control --record-history on
 
 # This is a default setting that I don't understand.
 # It should do something like swap the active window with the last window that was opened via
 # preselection. I think.
 super + y
-	bspc window -w last.manual
+    bspc window -w last.manual
 
 # Swap the active window with the biggest window in the active desktop
 super + m
-	bspc window -s biggest
+    bspc window -s biggest
 
 # Move the window focus {left,down,up,right}
 super + {h,j,k,l}
-	bspc window -f {left,down,up,right}
+    bspc window -f {left,down,up,right}
 
 # Swap windows, moving the active one {left,down,up,right}
 super + shift + {h,j,k,l}
@@ -93,32 +93,32 @@ super + shift + {h,j,k,l}
 
 # Move the window focus {forward,backward} through the binary tree
 super + {_,shift + }c
-	bspc window -f {next,prev}
+    bspc window -f {next,prev}
 
 # Circulate the leaves of the binary tree {forward,backward}
 # (Like, rotate the windows around on the screen...)
 super + {comma,period}
-	bspc desktop -C {backward,forward}
+    bspc desktop -C {backward,forward}
 
 # Move the desktop focus {forward,backward}
 super + bracket{left,right}
-	bspc desktop -f {prev,next}
+    bspc desktop -f {prev,next}
 
 # Preselect the {left,lower,upper,right} half of the active window
 super + ctrl + {h,j,k,l}
-	bspc window -p {left,down,up,right}
+    bspc window -p {left,down,up,right}
 
 # Cancel the preselection(s) on the active {window,desktop}
 super + ctrl + {_,shift + }space
-	bspc {window -p cancel,desktop -c}
+    bspc {window -p cancel,desktop -c}
 
 # Push the {left,lower,upper,right} edge of the active window outward
 super + alt + {h,j,k,l}
-	bspc window -e {left -10,down +10,up -10,right +10}
+    bspc window -e {left -10,down +10,up -10,right +10}
 
 # Pull the {right,upper,lower,left} edge of the active window inward
 super + alt + shift + {h,j,k,l}
-	bspc window -e {right -10,up +10,down -10,left +10}
+    bspc window -e {right -10,up +10,down -10,left +10}
 
 # Reset the split ratios for the windows on the active desktop
 super + alt + space
@@ -128,7 +128,7 @@ super + alt + space
 # window fraction with the following command. E.g. to preselect a fifth (0.2) of the active
 # window, hit super + ctrl + 2, then preselect with super + ctrl + {h,j,k,l}
 super + ctrl + {1-9}
-	bspc window -r 0.{1-9}
+    bspc window -r 0.{1-9}
 
 # Move the focus to desktop number {1-9,0}
 super + {1-9,0}
@@ -136,7 +136,7 @@ super + {1-9,0}
 
 # Send the active window to desktop number {1-9,0}
 super + shift + {1-9,0}
-	bspc window -d ^{1-9,10}
+    bspc window -d ^{1-9,10}
 
 # Rotate the subtree holding the {left,lower,upper,right} edge of the active window
 # Use this to fix overly "elongated" windows
@@ -149,19 +149,19 @@ super + shift + ctrl + {1-9,0}
 
 # Clicking on a window (with any of the mouse buttons) focuses it
 ~button{1-3}
-	bspc pointer -g focus
+    bspc pointer -g focus
 
 # super + left-click to move a window
 # super + middle-click to resize a window by grabbing one of its sides
 # super + right-click to resize a window by grabbing one of its corners
 super + button{1-3}
-	bspc pointer -g {move,resize_side,resize_corner}
+    bspc pointer -g {move,resize_side,resize_corner}
 
 super + !button{1-3}
     bspc pointer -t %i %i
 
 super + @button{1-3}
-	bspc pointer -u
+    bspc pointer -u
 
 #
 # wm independent hotkeys
@@ -169,16 +169,16 @@ super + @button{1-3}
 
 # Volume {up,down}
 ctrl + {Up,Down}
-	pamixer --allow-boost {--increase,--decrease} 1
+    pamixer --allow-boost {--increase,--decrease} 1
 
 # Open terminal window
 super + Return
-	urxvt
+    urxvt
 
 # Open dmenu (to launch any app, or run a command in the background)
 # (dmenu will show as a narrow strip on top of the active screen, so look up. Esc to close it again.)
 super + space
-	dmenu_run
+    dmenu_run
 
 # Open qutebrowser (keybinding-driven web browser, little multimedia support)
 super + backslash
@@ -186,29 +186,29 @@ super + backslash
 
 # Open Google Chrome (all multimedia, but without cool keybindings + farewell privacy :) )
 super + shift + backslash
-	google-chrome-stable
+    google-chrome-stable
 
 # Open ncmpc in a new terminal window (minimalistic music player)
 super + slash
-	urxvt -e ncmpc
+    urxvt -e ncmpc
 
 # Controls for mpd (the music play daemon)
     
 # Play, then Toggle pause
 ctrl + space
-	mpc toggle
+    mpc toggle
 
 # Stop
 ctrl + shift + space
-	mpc stop
+    mpc stop
 
 # Next song
 ctrl + Right
-	mpc next
+    mpc next
 
 # Previous song
 ctrl + Left
-	mpc prev
+    mpc prev
 
 # Toggle shuffle
 ctrl + slash
@@ -216,4 +216,4 @@ ctrl + slash
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
