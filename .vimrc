@@ -115,3 +115,8 @@ set wildmenu
 set suffixesadd=.kt,.js,.java,.py
 set includeexpr=substitute(substitute(v:fname,'\.','\/','g'),'$','.kt','')
 set includeexpr=substitute(substitute(v:fname,'\.','\/','g'),'$','.java','')
+
+" Put backups in .vim/tmp/
+set backupdir=~/.vim/tmp,.
+set undodir=~/.vim/tmp,.
+set directory=~/.vim/tmp,.

@@ -16,6 +16,8 @@ export VISUAL="vim"
 export LS_COLORS=$LS_COLORS:'di=0;95'
 
 export EDITOR="vim"
+export BROWSER="w3m"
+export GBROWSER="google-chrome-stable"
 
 alias sudo='sudo ' # bash manual sez:
                    # "If the last character of the alias value is a space or tab

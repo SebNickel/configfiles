@@ -1,3 +1,7 @@
+#
+# ~/.mutt/muttrc
+#
+
 source "gpg2 -dq $HOME/.my-pwds.gpg |"
 
 bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' noop
@@ -16,3 +20,20 @@ set send_charset    = "us-ascii:utf-8"
 set realname        = 'Sebastian Nickel'
 set sendmail        = "/usr/bin/msmtp"
 set edit_headers    = yes
+set mailcap_path    = ~/.mutt/mailcap
+
+auto_view text/html
+alternative_order text/plain text/html
+
+macro attach 'c' "<pipe-entry>cat >~/.cache/mutt/mail.html && $GBROWSER ~/.cache/mutt/mail.html<enter>"
+
+macro pager \cw <pipe-entry>'urlview'<enter>
+
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CF next-page
+bind attach,index,pager \CB previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
