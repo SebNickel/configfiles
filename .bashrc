@@ -19,11 +19,27 @@ export EDITOR="vim"
 export BROWSER="w3m"
 export GBROWSER="google-chrome-stable"
 
+export PI="pi@seb.ignorelist.com"
+
+stty -ixon # Disable the legacy keybinding "Ctrl+S" for "scroll lock", which in my
+           # case stops the terminal's interaction with the X server altogether
+           # until "Ctrl+Q" is entered. (Note that the terminal still receives and
+           # processes all input, which could be dangerous.)
+           # Interestingly enough, Ctrl+S is now bound to i-search! (Which is like
+           # reverse-i-search but in reverse.)
+
 alias sudo='sudo ' # bash manual sez:
                    # "If the last character of the alias value is a space or tab
                    # character, then the next command word following the alias is
                    # also checked for alias expansion."
                    # (Otherwise aliases work on the first word only.)
 alias vim='vim -u ~/.vimrc'
+alias mutt='CURRENT_DIR=$( pwd ); cd ~/.mutt/attachments && mutt && cd $CURRENT_DIR'
 alias minecraft='optirun minecraft'
-alias rsynch='img2txt ~/Pictures/synch/synch4.png; echo >> /dev/null'
+
+alias moarcap=moarwiki
+
+alias rsynch='img2txt ~/Pictures/synch/synch4.png; echo > /dev/null'
+alias rsych='echo "PSYCH"; echo > /dev/null'
+alias astsu="echo \"No it's \\\"sudo\\\".\"; echo > /dev/null"
+alias astu="echo \"No it's \\\"astsu\\\".\"; echo > /dev/null"
