@@ -4,11 +4,9 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-figlet -f small "*** Mathison ***"
-
-asciipics=($( ls ~/Pictures/ascii ))
+asciipics=($( ls ~/pictures/asciiable ))
 selection=$RANDOM%${#asciipics[*]}
-cat ~/Pictures/ascii/${asciipics[$selection]}
+ska ~/pictures/asciiable/${asciipics[$selection]}
 
 echo
 

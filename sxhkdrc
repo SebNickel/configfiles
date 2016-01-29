@@ -188,11 +188,19 @@ super + backslash
 super + shift + backslash
     google-chrome-stable
 
+# Open Kindle Cloud Reader in a toolbar-less Google Chrome window
+super + r
+    google-chrome-stable --app=http://read.amazon.com
+
+# Open Netflix in a toolbar-less Google Chrome window
+super + shift + n
+    google-chrome-stable --app=https://www.netflix.com
+
 # Open ncmpc in a new terminal window (minimalistic music player)
 super + slash
     urxvt -e ncmpc
 
-# Controls for mpd (the music play daemon)
+## Controls for mpd (the music play daemon) ########################################################
     
 # Play, then Toggle pause
 ctrl + space
@@ -213,6 +221,28 @@ ctrl + Left
 # Toggle shuffle
 ctrl + slash
     mpc random
+
+###################################################################################################
+
+## Screenshots ####################################################################################
+
+# Active desktop on primary monitor
+ctrl + shift + Return
+    screenshot -d
+
+# Active window
+ctrl + alt + Return
+    screenshot -w
+
+# All monitors
+ctrl + alt + shift + Return
+    screenshot -a
+
+# Select a portion of the screen using the mouse
+ctrl + shift + button1
+    screenshot -s
+
+###################################################################################################
 
 # make sxhkd reload its configuration files:
 super + Escape

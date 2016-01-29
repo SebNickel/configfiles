@@ -54,7 +54,7 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 # feh --bg-scale ~/Pictures/scott.jpg
-feh --bg-max -g +850  ~/Pictures/chiptunes_win.jpg
+feh --bg-max -g +850  ~/pictures/chiptunes_win.jpg
 
 # autocutsel keeps 'clipboard' and 'primary selection' synced
 autocutsel -fork &

@@ -23,7 +23,7 @@ ${time %e %b %Y}${font DejaVuSerif:size=35}
 $alignr${time %A}
 ${voffset 10}${font DejaVuSerif:size=30}Active desktop: $desktop$font
 
-IP: ${execi 36000 wget -O - http://ip.tupeux.com | tail}${alignr}Volume:  ${exec amixer get Master 0 | grep -oE [[:digit:]]*% -m 1}
+IP: ${execi 36000 curl http://ipecho.net/plain }${alignr}Volume:  ${exec amixer get Master 0 | grep -oE [[:digit:]]*% -m 1}
 
 Battery$alignr${font DejaVuSerif:italic:size=15}${battery_percent BAT1}%$font
 ${battery_bar BAT1}
