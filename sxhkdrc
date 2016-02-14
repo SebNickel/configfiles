@@ -196,6 +196,10 @@ super + r
 super + shift + n
     google-chrome-stable --app=https://www.netflix.com
 
+# Open pavucontrol, e.g. to redirect audio to the bluetooth headset
+super + p
+    pavucontrol
+
 # Open ncmpc in a new terminal window (minimalistic music player)
 super + slash
     urxvt -e ncmpc

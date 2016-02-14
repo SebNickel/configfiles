@@ -21,7 +21,10 @@ TEXT
 ${font DejaVuSerif:size=72}${time %H:%M:%S}
 ${time %e %b %Y}${font DejaVuSerif:size=35}
 $alignr${time %A}
-${voffset 10}${font DejaVuSerif:size=30}Active desktop: $desktop$font
+${color green}${font Inconsolata:size=25}${hr 10}
+UTC    $alignc${utime %H:%M:%S}$alignr${utime %e %b %Y}
+${voffset -10}${hr 10}${color white}
+${voffset 20}${font DejaVuSerif:size=30}Active desktop: $desktop$font
 
 IP: ${execi 36000 curl http://ipecho.net/plain }${alignr}Volume:  ${exec amixer get Master 0 | grep -oE [[:digit:]]*% -m 1}
 
@@ -36,7 +39,7 @@ ${fs_bar /home}
 
 /$alignc${font DejaVuSerif:size=15}${fs_used /} / ${fs_size /} $alignr${font DejaVuSerif:italic:size=15}${fs_used_perc /}%$font
 ${fs_bar /}
-
+${font DejaVuSerif:size=20}
 Top Processes
 
     ${top_mem name 1} $alignr${top mem 1}%

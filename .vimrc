@@ -34,6 +34,7 @@ Plugin 'VundleVim/Vundle.vim'
 "
 "
 Plugin 'udalov/kotlin-vim'
+Plugin 'lukaszkorecki/workflowish'
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -172,9 +173,5 @@ set includeexpr=substitute(substitute(v:fname,'\.','\/','g'),'$','.java','')
 set backupdir=~/.vim/tmp,.
 set undodir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
-
-" Enable mouse in all modes.
-" I would enable if for scrolling only if I could find a way.
-set mouse=a
 
 set hidden
