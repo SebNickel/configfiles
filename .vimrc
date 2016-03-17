@@ -160,6 +160,7 @@ set tabstop=4 shiftwidth=4 expandtab
 
 " line numbers pls
 set number
+set numberwidth=2
 
 " tab completion in command line mode
 set wildmenu
@@ -175,3 +176,19 @@ set undodir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
 
 set hidden
+
+" key mappings
+
+let mapleader = "-"
+let maplocalleader = ","
+
+noremap <leader><leader> :noh<cr>
+inoremap <c-u> <esc>viw~wi
+nnoremap <c-u> viw~
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>t i<c-t><esc>
+nnoremap <leader>d i<c-d><esc>
+" Wrap words/selections in quotes
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>W

@@ -17,7 +17,7 @@ export LS_COLORS=$LS_COLORS:'di=0;95'
 
 export EDITOR="vim"
 export BROWSER="w3m"
-export GBROWSER="google-chrome-stable"
+export MYVIMRC=$HOME/.vimrc
 
 export PI="seb@seb.ignorelist.com"
 
